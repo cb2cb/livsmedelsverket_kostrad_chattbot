@@ -1,5 +1,9 @@
 ## Kostråd-chattbot
 
+## Live-app
+
+Testa appen här: https://livsmedelsverketkostradchattbot.streamlit.app
+
 En RAG-chattbot som ger kostråd för gravida, spädbarn och småbarn (0–2 år), 
 baserad på information från Livsmedelsverket och 1177.
 
