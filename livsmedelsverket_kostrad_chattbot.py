@@ -355,9 +355,12 @@ st.markdown("""
     @media (max-width: 767px) {
         .main .block-container {
             padding: 1rem;
+            max-width: 100% !important;
         }
         h1 {
             font-size: 1.2rem;
+            color: #2c7a5c !important;
+            display: block !important;
         }
     }
     </style>
