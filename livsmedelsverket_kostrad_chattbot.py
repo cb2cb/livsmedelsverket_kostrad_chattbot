@@ -56,11 +56,11 @@ def ladda_data():
         for page in reader.pages:
             text += page.extract_text()
 
-    """ Styckebaserad chunking delar på styckesgränser istället för teckenantal 
-    som jag hade i början. Detta gör att texten i varje chunk hänger bättre ihop 
-    och minskar risken för att viktiga meningar delas upp. 
-    Hade problem med att vissa chunkar inte innehöll tillräckligt med information för att ge bra svar, 
-    nu blir det mer sammanhängande text i varje chunk, vilket resulterar i bättre svar. """
+    #Styckebaserad chunking delar på styckesgränser istället för teckenantal 
+    #som jag hade i början. Detta gör att texten i varje chunk hänger bättre ihop 
+    #och minskar risken för att viktiga meningar delas upp. 
+    #Hade problem med att vissa chunkar inte innehöll tillräckligt med information för att ge bra svar, 
+    #nu blir det mer sammanhängande text i varje chunk, vilket resulterar i bättre svar. """
     def skapa_chunks(text, max_storlek=2000, overlap=200):
         stycken = [s.strip() for s in text.split("\n\n") if s.strip()]
         chunks = []
@@ -102,12 +102,12 @@ def ladda_data():
 
 client, chunks, embeddings = ladda_data()
 
-"""För att undvika att skicka hundratals API-anrop varje gång appen startas sparas 
-embeddings i en lokal fil kallad embeddings.pkl med hjälp av Python-biblioteket pickle. 
-När appen startas kontrolleras det om filen finns. 
-Om den finns laddas embeddings direkt från disk, annars skapas de och sparas för framtida bruk. 
-API-anropen skickas i batchar om 50 chunks med en paus på 15 sekunder mellan varje batch, 
-för att inte överstiga Gemini API:ets hastighetsbegränsning."""
+#För att undvika att skicka hundratals API-anrop varje gång appen startas sparas 
+#embeddings i en lokal fil kallad embeddings.pkl med hjälp av Python-biblioteket pickle. 
+#När appen startas kontrolleras det om filen finns. 
+#Om den finns laddas embeddings direkt från disk, annars skapas de och sparas för framtida bruk. 
+#API-anropen skickas i batchar om 50 chunks med en paus på 15 sekunder mellan varje batch, 
+#för att inte överstiga Gemini API:ets hastighetsbegränsning."""
 
 # ---------------------------------------------------------------
 # Hjälpfunktioner
